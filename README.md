@@ -68,3 +68,17 @@ You can click the Preview link to take a look at your changes.
     < value >Bildirimleri Etkinleştir</ value >
   </veri >
 </ kök >
+name: Deployment
+on: [push]
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      ...
+      - name: Set up tools
+        uses: daisaru11/setup-cd-tools@v1
+        with:
+          kubectl: '1.6.0'
+          kustomize: '3.5.4'
+      ...
